@@ -1,0 +1,21 @@
+
+.btn {
+    border: none; 
+    background-color: transparent; 
+    border-radius: 8px; 
+    padding: 8px 20px; 
+    font-size: 16px; 
+    font-weight: 500; 
+    font-family: roboto;
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+.btn-primary {
+   background-color: $blue; color: white;
+
+   &:hover {
+        background-color: lighten($blue, 20%);
+    }
+}
