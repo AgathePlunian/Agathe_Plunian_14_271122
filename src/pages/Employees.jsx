@@ -187,13 +187,7 @@ function Employees() {
         return item;
         }
       })
-      if(tmpDataToShow.length > 0) {
-        setSearch(true)
-      }
 
-      else {
-        setSearch(false)
-      }
     setDataToShow(tmpDataToShow);
   }  
 
