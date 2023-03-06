@@ -4,18 +4,13 @@ import { configureStore, createSlice } from "@reduxjs/toolkit"
 const employeeStore = createSlice({
     name: 'employee',
     initialState: {
-        employeesArray : [],
-        empoyeesArraySorted : [],
-        
+        employeesArray : [],        
     },
    
     reducers: {
         addEmployee: (state, employee) => {
             state.employeesArray.push(employee.payload)
-         
         },
-        
-
     },
 }) 
 

@@ -6,8 +6,7 @@ import departments from '../assets/data/department'
 import states from '../assets/data/state'
 import { useEffect } from 'react';
 import { Modal } from 'modal-lib-react-oc'
-
-
+import employeesData from '../assets/data/employees'
 function Home() {
 
   const [startdate, setStartDate] = useState(new Date());
@@ -20,6 +19,12 @@ function Home() {
     modalBtn.addEventListener('click', handleSubmit);
   }, []);
 
+  // Add employees in data
+  useEffect(() => {
+  {employeesData.map((item) => (
+    dispatch(addEmployee(item))
+  ))}
+  }, []);
 
   /*
     Function save employee
@@ -76,20 +81,20 @@ function Home() {
               <input name="last-name" type="text" id="last-name" className='form-input'/>
 
               <label htmlFor="birthDate">Date of Birth</label>
-              <DatePicker name="birthDate" className='form-input form-input-date' id='birthDate' selected={birthdate}  dateFormat="dd/MM/yyyy" peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select"   onChange={(date) => setBirthDate(date)} />
+              <DatePicker name="birthDate" className='form-input form-input-date' id='birthDate' selected={birthdate}  dateFormat="dd/MM/yyyy" peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select" onChange={(date) => setBirthDate(date)} />
 
               <label htmlFor="startDate">Start Date</label>
         
-              <DatePicker name="startDate" className='form-input form-input-date' id="startDate" selected={startdate} dateFormat="dd/MM/yyyy"  peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select" yearDropdownItemNumber={15}  scrollableYearDropdown onChange={(date) => setStartDate(date)} />
+              <DatePicker name="startDate" className='form-input form-input-date' id="startDate" selected={startdate} dateFormat="dd/MM/yyyy"  peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select" yearDropdownItemNumber={15} scrollableYearDropdown onChange={(date) => setStartDate(date)} />
 
               <div className="address">
                 <legend className='legend'>Address</legend>
 
                 <label htmlFor="street">Street</label>
-                <input name="street" id="street" type="text"  className='form-input'/>
+                <input name="street" id="street" type="text" className='form-input'/>
 
                 <label htmlFor="city">City</label>
-                <input name="city" id="city" type="text"  className='form-input'/>
+                <input name="city" id="city" type="text" className='form-input'/>
 
                 <label htmlFor="state">State</label>
                 <select name="state" id="state" className='form-input form-select'>
