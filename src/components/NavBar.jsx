@@ -10,7 +10,7 @@ function NavBar () {
           HRnet
       </NavLink>
       <NavLink to="/employees" className="main-nav-item">
-      <img className="icon-people" src={iconPeople}/>
+      <img className="icon-people" src={iconPeople} alt='icon communauté'/>
       View Current Employees
       </NavLink>
       </div>

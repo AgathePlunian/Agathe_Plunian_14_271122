@@ -70,26 +70,26 @@ function Home() {
           
           <form action="#" id="create-employee" className='form-create'>
               <label htmlFor="first-name">First Name</label>
-              <input type="text" id="first-name" className='form-input' />
+              <input name="first-name" type="text" id="first-name" className='form-input' />
 
               <label htmlFor="last-name">Last Name</label>
-              <input type="text" id="last-name" className='form-input'/>
+              <input name="last-name" type="text" id="last-name" className='form-input'/>
 
-              <label htmlFor="date-of-birth">Date of Birth</label>
-              <DatePicker className='form-input form-input-date' id='birthDate' selected={birthdate}  dateFormat="dd/MM/yyyy" peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select"   onChange={(date) => setBirthDate(date)} />
+              <label htmlFor="birthDate">Date of Birth</label>
+              <DatePicker name="birthDate" className='form-input form-input-date' id='birthDate' selected={birthdate}  dateFormat="dd/MM/yyyy" peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select"   onChange={(date) => setBirthDate(date)} />
 
-              <label htmlFor="start-date">Start Date</label>
+              <label htmlFor="startDate">Start Date</label>
         
-              <DatePicker className='form-input form-input-date' id="startDate" selected={startdate} dateFormat="dd/MM/yyyy"  peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select" yearDropdownItemNumber={15}  scrollableYearDropdown onChange={(date) => setStartDate(date)} />
+              <DatePicker name="startDate" className='form-input form-input-date' id="startDate" selected={startdate} dateFormat="dd/MM/yyyy"  peekNextMonth showMonthDropdown showYearDropdown dropdownMode="select" yearDropdownItemNumber={15}  scrollableYearDropdown onChange={(date) => setStartDate(date)} />
 
               <div className="address">
                 <legend className='legend'>Address</legend>
 
                 <label htmlFor="street">Street</label>
-                <input id="street" type="text"  className='form-input'/>
+                <input name="street" id="street" type="text"  className='form-input'/>
 
                 <label htmlFor="city">City</label>
-                <input id="city" type="text"  className='form-input'/>
+                <input name="city" id="city" type="text"  className='form-input'/>
 
                 <label htmlFor="state">State</label>
                 <select name="state" id="state" className='form-input form-select'>
@@ -101,7 +101,7 @@ function Home() {
                 </select>
 
                   <label htmlFor="zip-code">Zip Code</label>
-                  <input id="zip-code" type="number"  className='form-input '/>
+                  <input name="zip-code" id="zip-code" type="number"  className='form-input '/>
               </div>
 
               <label htmlFor="department">Department</label>

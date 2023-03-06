@@ -228,7 +228,7 @@ function Employees() {
           : ''}
         </div>   
         <NavLink to="/" className="back-link">
-            <img className="icon-home" src={iconHome}/>  Go back home
+            <img className="icon-home" src={iconHome} alt='icon home'/>  Go back home
         </NavLink>
       </div>
     </div>
