@@ -10,6 +10,7 @@ function Employees() {
   let storeData = useSelector((state) => state.employeeStore.employeesArray);
   const [dataToShow, setDataToShow] = useState(storeData.slice(0, 10));
   const [limitedValue, setEntries] = useState(10);
+  const [searchActive, setSearch] = useState(false);
   
   let numberOfEntries = storeData.length;
 
@@ -173,7 +174,9 @@ function Employees() {
    */
 
   function searchTable(event) {
-    let searchValue = event.target.value; 
+    
+    let searchValue = event.target.value.toLowerCase(); 
+
     const tmpDataToShow = storeData
       .filter((item) => {
         const search = Object.values(item)
@@ -184,6 +187,13 @@ function Employees() {
         return item;
         }
       })
+      if(tmpDataToShow.length > 0) {
+        setSearch(true)
+      }
+
+      else {
+        setSearch(false)
+      }
     setDataToShow(tmpDataToShow);
   }  
 
@@ -214,7 +224,6 @@ function Employees() {
         </div>
   
         {dataToShow.length > 0 ? 
-        
         <TableEmployees data={dataToShow} sortTable={sortTable} limitedValue={limitedValue}></TableEmployees> 
         : <div className='not-found'>Aucun employé n'a été trouvé ! </div>}
           
@@ -224,7 +233,7 @@ function Employees() {
           </div>
 
           {dataToShow.length > 0 ? 
-          <PageNumber limitedValue={limitedValue} allEntries={ numberOfEntries } changePage={changePage} navPage ={navPage}></PageNumber> 
+          <PageNumber limitedValue={limitedValue} allEntries={ numberOfEntries } changePage={changePage} navPage ={navPage} search={searchActive} DataToShow={dataToShow}></PageNumber> 
           : ''}
         </div>   
         <NavLink to="/" className="back-link">

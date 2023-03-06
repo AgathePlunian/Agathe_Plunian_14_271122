@@ -8,10 +8,19 @@ import { useEffect } from "react";
 * @param {function} navPage -Function handle navigation with buttons "previous" , "next"
 * @returns {Array} To show
 */
-function PageNumber({limitedValue, allEntries, changePage, navPage}) {
+function PageNumber({limitedValue, allEntries, changePage, navPage, search, DataToShow}) {
+  let numberOfpages;
+
+  if(search == true) {
+     numberOfpages = Math.ceil(DataToShow.length / limitedValue);
+  }
+
+  else {
+    numberOfpages = Math.ceil(allEntries / limitedValue);
+  }
 
   let content = [];
-  let numberOfpages = Math.ceil(allEntries / limitedValue);
+  
   
   for(let i = 0; i < numberOfpages ; i++) {
     if(i == 0) {
